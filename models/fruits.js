@@ -25,3 +25,7 @@ const fruits = [
         readyToEat: 'false'
     },
 ]
+
+module.exports = {
+    fruits,
+}

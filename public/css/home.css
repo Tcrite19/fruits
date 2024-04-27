@@ -1,0 +1,23 @@
+:root {
+    --fruit-bg-color:#f3d250;
+    --bg-color: #ececec;
+    --meat--bg-color:#f78888;
+    --text-color: #314455;
+    --veggie-bg-color: #90ccf4;
+  }
+  
+  .home-content {
+    background-color: var(--bg-color);
+  }
+
+  .fruit-recipes {
+    background-color: var(--fruit-bg-color);
+  }
+
+  .meat-recipes {
+    background-color: var(--meat--bg-color);
+  }
+
+  .veggie-recipes {
+    background-color: var(--veggie-bg-color);
+  }
