@@ -12,6 +12,8 @@ const { veggies } = require('./models/veggies');
 // -------------- MiddleWare ---------
 app.set('view engine', 'ejs'); // come back to this
 app.use('/', express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // -------------- Routes -------------
 // ********* Index Route ********
@@ -33,6 +35,10 @@ app.get('/veggies', (req, res) => {
     // render array as a response
     res.render('veggies/index', { allVeggies: veggies });
 });
+// ******* NEW ROUTE **********
+app.get('/fruits/new', (req, res) => {
+    res.render('fruits/new.ejs', {});
+})
 
 // ******* SHOW ROUTE *********
 app.get('/fruits/:indexOfFruitsArray', (req, res) => {
@@ -70,6 +76,19 @@ app.get('/meats/:indexOfmeatsArray', (req, res) => {
         res.render('meats/show', { meat: meats[idx] });
     }
 });
+
+// ********** POST NEW FRUIT **************
+app.post('/fruits', (req, res) => {
+    console.log('---------- FORM BODY --------------\n', req.body);
+    // add more code here
+    if (req.body.readyToEat === 'on') {
+        req.body.readyToEat = true;
+    } else { // req.body.readyToEat will be undefined (unchecked)
+        req.body.readyToEat = false;
+    }
+    fruits.push(req.body);
+    res.redirect('/fruits');
+})
 
 // --------------- Listen for Server -------
 app.listen(PORT, () => {

@@ -8,8 +8,12 @@
 }
 
 body {
-  background: #17FF00;
+  background: #1f242d;
   color: #ededed;
+}
+
+.nav a {
+  color: green;
 }
 
 .timeline {
