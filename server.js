@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express(); // our app
 const PORT = process.env.PORT || 5000;
-
+const methodOverride = require('method-override');
 
 // -------------- Data ---------------
 // inside of fruits.js
@@ -10,10 +10,13 @@ const { meats } = require('./models/meats');
 const { veggies } = require('./models/veggies');
 
 // -------------- MiddleWare ---------
+app.use(methodOverride('_method'))
 app.set('view engine', 'ejs'); // come back to this
 app.use('/', express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// add middleware for PUT AND DELETE methods
+
 
 // -------------- Routes -------------
 // ********* Index Route ********
@@ -40,6 +43,34 @@ app.get('/fruits/new', (req, res) => {
     res.render('fruits/new.ejs', {});
 })
 
+
+
+// ********* GET - EDIT PAGE ************ 
+app.get('/fruits/:id/edit', (req, res) => {
+    const fruit = fruits[req.params.id];
+    let id = parseInt(req.params.id);
+    res.render('fruits/edit', { fruit, id })
+})
+
+// ********* GET - DELETE PAGE *********
+app.get('/fruits/:id/delete', (req, res) => {
+    const fruit = fruits[req.params.id];
+    let id = parseInt
+})
+
+// ********** POST NEW FRUIT **************
+app.post('/fruits', (req, res) => {
+    console.log('---------- FORM BODY --------------\n', req.body);
+    // add more code here
+    if (req.body.readyToEat === 'on') {
+        req.body.readyToEat = true;
+    } else { // req.body.readyToEat will be undefined (unchecked)
+        req.body.readyToEat = false;
+    }
+    fruits.push(req.body);
+    res.redirect('/fruits');
+})
+
 // ******* SHOW ROUTE *********
 app.get('/fruits/:indexOfFruitsArray', (req, res) => {
     let idx = parseInt(req.params.indexOfFruitsArray);
@@ -49,9 +80,9 @@ app.get('/fruits/:indexOfFruitsArray', (req, res) => {
         res.render('404', {});
     } else {
         // res.send(fruits[idx]);
-        res.render('fruits/show', { fruit: fruits[idx] });
+        res.render('fruits/show', { fruit: fruits[idx], id: idx });
     }
-});
+}); 
 
 app.get('/veggies/:indexOfveggiesArray', (req, res) => {
     let idx = parseInt(req.params.indexOfveggiesArray);
@@ -77,17 +108,25 @@ app.get('/meats/:indexOfmeatsArray', (req, res) => {
     }
 });
 
-// ********** POST NEW FRUIT **************
-app.post('/fruits', (req, res) => {
-    console.log('---------- FORM BODY --------------\n', req.body);
-    // add more code here
-    if (req.body.readyToEat === 'on') {
+
+
+// ************** PUT - UPDATE FRUIT ************
+app.put('/fruits/:id', (req, res) => {
+    console.log("----- UPDATE FRUIT ------------\n", req.body);
+    if(req.body.readyToEat === on) {
         req.body.readyToEat = true;
-    } else { // req.body.readyToEat will be undefined (unchecked)
+    } else {
         req.body.readyToEat = false;
     }
-    fruits.push(req.body);
-    res.redirect('/fruits');
+    fruits[parseInt(req.params.id)] = req.body; //
+    res.redirect('/fruits'); //
+})
+
+// ************* DELETE - DELETE  FRUIT **********
+app.delete('/fruits/:id', (req, res) => {
+
+    fruits.splice(parseInt(req.params.id), 1)
+    res.redirect('/fruits'); // redirect back to index page
 })
 
 // --------------- Listen for Server -------

@@ -1,18 +1,45 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fruits</title>
 </head>
+
 <body>
-    <h1><%= fruit.name %></h1>
-    <p>Color: <%= fruit.color %></p>
+    <h1>
+        <%= fruit.name %>
+    </h1>
+    <p>Color: <%= fruit.color %>
+    </p>
     <% if (fruit.readyToEat) { %>
         <p>Ready to Eat</p>
-    <% }  else {%>
-        <p>Not Ready to Eat</p>
-    <% } %>
+        <% } else {%>
+            <p>Not Ready to Eat</p>
+            <% } %>
 
-    <a href="./fruits"></a>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex error aspernatur, totam suscipit
+                    repellendus ipsa tempore quae tenetur blanditiis aliquid fugit reprehenderit odit consectetur
+                    voluptate nulla velit, unde aliquam et dolore quis accusamus hic facere a dolores? Ipsam libero
+                    consequuntur optio aut aliquid maxime repudiandae accusamus sint ut dignissimos aspernatur quibusdam
+                    inventore sunt asperiores repellat nulla, placeat ex, aperiam amet eum. Quod modi labore unde sunt
+                    beatae! Omnis magni error tempore ut esse adipisci repellendus dolor qui. Quibusdam in nam ullam
+                    cumque tempora est reprehenderit ipsam. Corporis praesentium neque quod illo odit ut nihil atque
+                    assumenda, ipsa itaque, nulla vitae? Est sit vel accusamus sapiente quia nesciunt! Excepturi, esse
+                    et similique animi, tenetur numquam perferendis cupiditate beatae sequi, deserunt corrupti nulla
+                    soluta. Quas odio dolore inventore. Rerum nobis aspernatur itaque et modi at illo tenetur, adipisci
+                    possimus fugit, quam soluta incidunt. Incidunt ullam maiores nemo, beatae veritatis doloremque
+                    asperiores provident?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et a eius laboriosam labore voluptate
+                    aspernatur reprehenderit voluptatum aliquid ut magni!
+                </p>
+                <a href="./fruits">Go Back</a>
+                <button><a href="/fruits/ <%= id %>/edit">Edit</a></button>
+                <button><a href="/fruits/<%= id %>">Delete Fruits</a></button>
 </body>
+
 </html>

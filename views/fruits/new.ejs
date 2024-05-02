@@ -6,15 +6,21 @@
     <title>Fruits</title>
 </head>
 <body>
-    <h1>Add New Fruits</h1>
-    <form action="/fruits" method="POST">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name">
-        <label for="color">Color</label>
-        <input type="text" name="color" id="color">
-        <label for="readyToEat">Is Ready to Eat</label>
-        <input type="checkbox" name="readyToEat" id="readyToEat">
-        <input type="submit" value="Create Fruit">
-    </form>
+    <section class="contact" id="contact">
+        <h2 class="heading">Add <span>New Fruit</span></h2>
+
+        <form action="/fruits" method="POST">
+          <div class="input-box">
+            <input type="text" name="name" id="name" placeholder="Name">
+            <input type="text" name="color" id="color" placeholder="Color">
+          </div>
+          <div class="input-box">
+            <label for="readyToEat">Is Ready to Eat?</label>
+            <input type="checkbox" name="readyToEat" id="readyToEat" >
+          </div>
+          <textarea name="" id="" cols="30" rows="10" placeholder="Description"></textarea>
+          <input type="submit" value="Create Fruit" class="btn">
+        </form>
+      </section>
 </body>
 </html>
