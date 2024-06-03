@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 :root {
-  --bg-color:#C96567;
+  --bg-color: #C96567;
   --second-bg-color: #9E5a63;
   --text-color: #314455;
   --main-color: #97aabd;
@@ -25,11 +25,12 @@ body {
   left: 0;
   width: 100%;
   padding: 2rem 9%;
-  background: var(--bg-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  height: 50px;
+  margin-bottom: 20px;
 }
 
 .navbar a {
@@ -60,6 +61,10 @@ body {
 
 .logo:hover {
   color: #0ef;
+}
+
+.nav a {
+  color: green;
 }
 
 .timeline {

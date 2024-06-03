@@ -67,7 +67,7 @@ body {
     color: var(--second-bg-color);
 }
 
-#menu-icon {
+#-icon {
     font-size: 3.6rem;
     color: var(--text-color);
     display: none;
@@ -127,7 +127,7 @@ body {
 .home-content span {
     color: var(--second-bg-color);
 }
-
+logo
 .social-media a {
     display: inline-flex;
     justify-content: center;
@@ -455,7 +455,7 @@ h3
 }
 
 @media (max-width: 768px) {
-    #menu-icon {
+    #-icon {
         display: block;
     }
 
@@ -559,7 +559,7 @@ h3
         margin-top: 5rem;
         margin-left: 5rem;
     }
-    .header #menu-icon {
+    .header #-icon {
         margin-top: -3.5rem;
     }
     .home {
